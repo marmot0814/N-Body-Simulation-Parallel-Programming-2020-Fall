@@ -82,7 +82,6 @@ void PhysicalEngine::nextSIMDOpenMP(vector<Particle> &p, GLfloat delta_time) {
         updateOnePosition(i, p, delta_time);
 }
 
-
 void PhysicalEngine::calculateOneForce(int i, vector<Particle> &p, GLfloat delta_time) {
     int N = p.size();
     for (int j = 0; j < N; j++) {
