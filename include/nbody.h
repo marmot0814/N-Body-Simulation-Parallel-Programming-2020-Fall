@@ -7,10 +7,14 @@ namespace BPO = boost::program_options;
 using namespace std;
 
 #include "particle.h"
+#include "displayer.h"
+#include "physicalengine.h"
 
 class NBodyEnv {
     vector<Particle> particles;
+    Displayer displayer;
+    PhysicalEngine engine;
 public:
-    NBodyEnv(BPO::variables_map &args);
+    NBodyEnv(const BPO::variables_map&);
     void run();
 };
