@@ -21,5 +21,4 @@ void NBodyEnv::run() {
         displayer.update(particles);
         engine.next(particles, displayer.getComputeMode(), displayer.getDeltaTime());
     }
-
 }
