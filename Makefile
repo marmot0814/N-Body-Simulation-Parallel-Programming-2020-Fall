@@ -3,7 +3,7 @@ SRC_DIR			    = src/
 INC_DIR			    = include/
 OBJ_DIR             = objs/
 
-CC				    = g++-10 -std=c++17
+CC				    = g++ -std=c++17
 CCFLAGS			    = -Iinclude -Ilib -Ofast -Wall -fPIC -lm -fopenmp -g3 -mavx2
 GLFLAGS			    = -lGL -lGLEW -lglfw -lSOIL -lm
 
