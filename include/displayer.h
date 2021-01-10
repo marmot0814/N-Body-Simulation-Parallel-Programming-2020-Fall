@@ -40,7 +40,7 @@ class Displayer {
     GLFWwindow* window;
     Shader* shader;
     GLuint vbo, vao;
-    double delta_time;
+    GLfloat delta_time;
     int frame_count = 0;
     double previous_time = 0.0f;
     double average_fps_sum = 0.0f;
@@ -49,6 +49,7 @@ class Displayer {
     static double last_x, last_y;
     static bool first_mouse;
     static Camera camera;
+    static bool restart;
 
     static bool keys[1024];
     static COMPUTE_MODE compute_mode;
@@ -61,4 +62,7 @@ public:
     bool stop();
     void update(const vector<Particle> &);
     COMPUTE_MODE getComputeMode();
+    GLfloat getDeltaTime();
+    bool getRestart();
+    void setRestart(bool);
 };

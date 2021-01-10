@@ -6,6 +6,7 @@ bool Displayer::first_mouse = true;
 Camera Displayer::camera;
 
 bool Displayer::keys[1024];
+bool Displayer::restart = false;
 COMPUTE_MODE Displayer::compute_mode = COMPUTE_MODE::SERIAL;
 
 Displayer::Displayer(const BPO::variables_map &args) : delta_time(0.03) {
@@ -176,6 +177,7 @@ void Displayer::KeyHandler(GLFWwindow* window, int key, int code, int action, in
                 compute_mode = COMPUTE_MODE::CUDA_FAST;
                 break;
             case GLFW_KEY_SPACE:
+                restart = true;
                 break;
             default:
                 break;
@@ -234,4 +236,15 @@ void Displayer::showFPS() {
             average_fps_count += 1;
         }
     }
+}
+
+GLfloat Displayer::getDeltaTime() {
+    return delta_time;
+}
+
+bool Displayer::getRestart() {
+    return restart;
+}
+void Displayer::setRestart(bool x) {
+    restart = x;
 }
