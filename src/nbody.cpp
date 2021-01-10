@@ -13,8 +13,12 @@ NBodyEnv::NBodyEnv(const BPO::variables_map &args)
 void NBodyEnv::run() {
 
     while (!displayer.stop()) {
+        if (displayer.getRestart()) {
+            displayer.setRestart(false);
+            for (int i = 0 ; i < (int)particles.size() ; i++)
+                particles[i] = Particle(particles[i].mass);
+        }
         displayer.update(particles);
-        engine.next(particles, displayer.getComputeMode());
+        engine.next(particles, displayer.getComputeMode(), displayer.getDeltaTime());
     }
-
 }
